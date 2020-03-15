@@ -7,6 +7,12 @@
             {{ blog_page.title }}{% if blog_page.description %} | {{ blog_page.description }}{% endif %}
         {% endblock title %}
     </title>
+    <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/favicon.ico">
+    <link rel="icon" type="image/png" href="./assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>Mundana Template by WowThemesNet</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport'/>
+
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="title"
@@ -26,9 +32,13 @@
 
     <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-    <link href='//fonts.googleapis.com/css?family=Roboto:400,300,300italic,100italic,100,400italic,500,500italic,700,900,700italic,900italic' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Source+Sans+Pro:400,600,700" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
     {% block css %}
-        <link rel='stylesheet' href="{% static 'puput/css/bootstrap.min.css' %}" type='text/css'/>
+        <link href="{% static 'blog/css/main.css' %}" type='text/css' rel="stylesheet"/>
+        <!--<link rel='stylesheet' href="{% static 'puput/css/bootstrap.min.css' %}" type='text/css'/>
         <link rel="stylesheet" href="{% static 'puput/css/font-awesome.min.css' %}">
         <style>
             body {
@@ -36,11 +46,12 @@
             }
         </style>
         <link rel="stylesheet" href="{% static 'puput/css/puput.css' %}"/>
+        -->
     {% endblock %}
 </head>
 <body>
 {% block blog_header %}
-    <div class="about">
+    <!---------------<div class="about">
         {% if blog_page.header_image %}
             <span class="image featured">
                 {% image blog_page.header_image fill-1500x120 as header_image %}
@@ -58,8 +69,59 @@
             </section>
         </div>
     </div>
+    ----------->
+
+<!--------------------------------------
+NAVBAR
+--------------------------------------->
+<nav class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+<div class="container">
+	<a class="navbar-brand" href="./index.html"><strong>Mundana</strong></a>
+	<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+	<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="navbar-collapse collapse" id="navbarColor02" style="">
+		<ul class="navbar-nav mr-auto d-flex align-items-center">
+			<li class="nav-item">
+			<a class="nav-link" href="./index.html">Intro <span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link" href="./article.html">Culture</a>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link" href="./article.html">Tech</a>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link" href="./article.html">Politics</a>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link" href="./article.html">Health</a>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link" href="./article.html">Collections</a>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link" href="./about.html">About</a>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link" href="./docs.html">Template <span class="badge badge-secondary">docs</span></a>
+			</li>
+		</ul>
+		<ul class="navbar-nav ml-auto d-flex align-items-center">
+			<li class="nav-item highlight">
+			<a class="nav-link" href="https://www.wowthemes.net/mundana-free-html-bootstrap-template/">Get this Theme</a>
+			</li>
+		</ul>
+	</div>
+</div>
+</nav>
+<!-- End Navbar -->
+
+
 {% endblock blog_header %}
+<!--------------------------------------
 {% wagtailuserbar %}
+
 <div class="container container-blog">
     <div class="row">
         <div class="col-sm-8 col-md-9">
@@ -117,21 +179,35 @@
         </div>
     </div>
 </div>
-<div class="footer">
-
-    <div class="footer_bottom">
-        <div class="copy">
-            <p>
-                Powered by <a href="http://www.djangoproject.com" rel="nofollow">Django</a>,
-                <a href="http://www.wagtail.io" rel="nofollow">Wagtail</a> and
-                <a href="http://github.com/APSL/puput" rel="nofollow">Puput</a>
-            </p>
-        </div>
-    </div>
+------>
+<!--------------------------------------
+FOOTER
+--------------------------------------->
+<div class="container mt-5">
+	<footer class="bg-white border-top p-3 text-muted small">
+	<div class="row align-items-center justify-content-between">
+		<div>
+            <span class="navbar-brand mr-2"><strong>Mundana</strong></span> Copyright &copy;
+			<script>document.write(new Date().getFullYear())</script>
+			 . All rights reserved.
+		</div>
+		<div>
+			Made with <a target="_blank" class="text-secondary font-weight-bold" href="https://www.wowthemes.net/mundana-free-html-bootstrap-template/">Mundana Theme</a> by WowThemes.net.
+		</div>
+	</div>
+	</footer>
 </div>
+<!-- End Footer -->
 {% block js %}
     <script src="{% static 'puput/js/jquery.min.js' %}"></script>
     <script src="{% static 'puput/js/puput.js' %}"></script>
+    <!--------------------------------------
+    JAVASCRIPTS
+    --------------------------------------->
+    <script src="{% static 'blog/js/vendor/jquery.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'blog/s/vendor/popper.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'blog/js/vendor/bootstrap.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'blog/js/functions.js' %}" type="text/javascript"></script>
 {% endblock js %}
 </body>
 </html>

@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'myapp.apps.MyappConfig',
     'celery',
     'simple_pagination',
-    'django_blog_it.django_blog_it',
 ]
 
 INSTALLED_APPS += PUPUT_APPS

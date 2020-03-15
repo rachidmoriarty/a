@@ -41,20 +41,75 @@
     <meta name="twitter:description" content="{% if self.excerpt %}{{ self.excerpt|striptags }}{% else %}{{ self.body|striptags|truncatewords:20 }}{% endif %}" />
 {% endblock social_share %}
 
+
+
+
+
 {% block content %}
-    <article class="box page-content"
-             {% if self.id %}data-entry-page-update-comments-url="{% url 'entry_page_update_comments' self.id %}{% endif %}">
-        {% include 'puput/entry_page_header.html' with entry=self %}
-        {% if self.header_image %}
-            <section>
-                <span class="image featured">
-                    {% image self.header_image fill-800x450 as header_image %}
-                    <img alt="{{ self.header_image.title }}" src="{{ header_image.url }}">
-                </span>
-                {% include 'puput/entry_links.html' with entry=self %}
-            </section>
-        {% endif %}
-        <section>
+
+<!--------------------------------------
+HEADER
+--------------------------------------->
+<div class="container">
+	<div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">
+		<div class="h-100 tofront">
+			<div class="row justify-content-between">
+				<div class="col-md-6 pt-6 pb-6 pr-6 align-self-center">
+					<p class="text-uppercase font-weight-bold">
+						<a class="text-danger" href="./category.html">Stories</a>
+					</p>
+					<h1 class="display-4 secondfont mb-3 font-weight-bold">{% include 'puput/entry_page_header.html' with entry=self %}</h1>
+					<p class="mb-3">
+						 Analysts told CNBC that the currency could hit anywhere between $1.35-$1.40 if the deal gets passed through the U.K. parliament.
+					</p>
+
+				</div>
+
+				<div class="col-md-6 pr-0">
+
+					{% if self.header_image %}
+						<section>
+							<span class="image featured">
+								{% image self.header_image fill-800x700 as header_image %}
+							</span>
+
+						</section>
+					{% endif %}
+
+					<img alt="{{ self.header_image.title }}" src="{{ header_image.url }}">
+				</div>
+				{% include 'puput/entry_links.html' with entry=self %}
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Header -->
+
+<!--------------------------------------
+MAIN
+--------------------------------------->
+<div class="container pt-4 pb-4">
+	<div class="row justify-content-center">
+		<div class="col-lg-2 pr-4 mb-4 col-md-12">
+			<div class="sticky-top text-center">
+				<div class="text-muted">
+					Share this
+				</div>
+				<div class="share d-inline-block">
+					<!-- AddToAny BEGIN -->
+
+					<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+						<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+						<a class="a2a_button_facebook"></a>
+						<a class="a2a_button_twitter"></a>
+					</div>
+					<script async src="https://static.addtoany.com/menu/page.js"></script>
+					<!-- AddToAny END -->
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12 col-lg-8">
+			<article class="article-post">
             {{ self.body|richtext}}
             <div class="row">
                 <div class="col-md-2">
@@ -63,26 +118,40 @@
                     </a>
                 </div>
                 {% entry_url self blog_page as post_url %}
-                <ul class="social-share-all text-right col-md-10">
-                    <li class="social-item">
-                       {% post_to_facebook post_url '<span><i class="fa fa-facebook"></i></span>' %}
-                    </li>
-                    <li class="social-item">
-                        {% post_to_twitter self.title post_url '<span><i class="fa fa-twitter"></i></span>' %}
-                    </li>
-                    <li class="social-item">
-                        {% post_to_linkendin post_url '<span><i class="fa fa-linkedin"></i></span>' %}
-                    </li>
-                </ul>
-            </div>
+			</article>
+			<div class="border p-5 bg-lightblue">
+				<div class="row justify-content-between">
+					<div class="col-md-5 mb-2 mb-md-0">
+						<h5 class="font-weight-bold secondfont">Become a member</h5>
+						 Get the latest news right in your inbox. We never spam!
+					</div>
+					<div class="col-md-7">
+						<div class="row">
+							<div class="col-md-12">
+								<input type="text" class="form-control" placeholder="Enter your e-mail address">
+							</div>
+							<div class="col-md-12 mt-2">
+								<button type="submit" class="btn btn-success btn-block">Subscribe</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
-        </section>
-        {% show_comments %}
-    </article>
+
+
+
+
+
 {% endblock content %}
 
+<!---
 {% block extra_content %}
     {% if self.has_related %}
         {% include 'puput/related_entries.html' with entry=self %}
     {% endif %}
 {% endblock extra_content %}
+--->

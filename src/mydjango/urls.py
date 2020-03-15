@@ -26,7 +26,6 @@ urlpatterns = [
     url(r'^$', ShowHelloWorld.as_view()),
     url(r'^index/', ShowIndex.as_view()),
     url(r'^puput/', include('puput.urls')),
-    url(r'^blogit/', include('django_blog_it.urls')),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
